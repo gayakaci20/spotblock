@@ -44,4 +44,3 @@ sudo ./spotblock.sh status
 ## 📜 Licence  
 
 📝 **MIT License** - Projet open-source, libre d'utilisation et de modification.  
-# spotblock
