@@ -1,46 +1,46 @@
 # 🚫🎵 SpotBlock - Spotify Ad Blocker  
 
-Un **script Bash** permettant de **bloquer les publicités Spotify** en modifiant le fichier `hosts` du système. Simple, efficace et rapide !  
+A **Bash script** that **blocks Spotify ads** by modifying your system's `hosts` file. Simple, effective, and easy to use!  
 
 ## 🔧 Installation  
 
-1️⃣ **Cloner ou télécharger** ce repository 📂  
-2️⃣ **Rendre le script exécutable** :  
+1️⃣ **Clone or download** this repository 📂  
+2️⃣ **Make the script executable**:  
    ```bash
    chmod +x spotblock.sh
    ```
 
-## 🚀 Utilisation  
+## 🚀 Usage  
 
-Le script nécessite des **droits root (sudo)** et prend en charge les commandes suivantes :  
+The script **requires root privileges (sudo)** and supports the following commands:  
 
 ```bash
-# Bloquer les publicités Spotify 🚫
+# Block Spotify ads 🚫
 sudo ./spotblock.sh block  
 
-# Restaurer le fichier hosts original 🔄
+# Restore the original hosts file 🔄
 sudo ./spotblock.sh restore  
 
-# Vérifier le statut de Spotify et du blocage des pubs 🔍
+# Check Spotify and ad-blocking status 🔍
 sudo ./spotblock.sh status  
 ```
 
-## ⚙️ Comment ça marche ?  
+## ⚙️ How It Works  
 
-🛠️ **SpotBlock** modifie le fichier `/etc/hosts` en redirigeant les **domaines de publicité de Spotify** vers `127.0.0.1`.  
-🚫 Cela empêche Spotify de charger les publicités.  
+🛠️ **SpotBlock** modifies the `/etc/hosts` file, redirecting **Spotify ad domains** to `127.0.0.1`.  
+🚫 This prevents ads from loading while you enjoy your music.  
 
-## 🔴 Points Importants  
+## 🔴 Important Notes  
 
-✅ **Sauvegarde automatique** 🗂️ : Le script crée une **sauvegarde** du fichier `hosts` avant toute modification.  
-✅ **Redémarrage nécessaire** 🔄 : Après le blocage des pubs, **Spotify doit être redémarré** pour appliquer les changements.  
-✅ **Mises à jour requises** 🔄 : Spotify peut changer ses domaines publicitaires, nécessitant des **mises à jour** de la liste des domaines bloqués.  
+✅ **Automatic backup** 🗂️: The script **creates a backup** of the `hosts` file before making any changes.  
+✅ **Restart required** 🔄: After blocking ads, **Spotify must be restarted** for the changes to take effect.  
+✅ **Updates needed** 🔄: Spotify may change its ad domains, so periodic **updates** to the blocklist may be required.  
 
-## ⚠️ Avertissement  
+## ⚠️ Disclaimer  
 
-📢 **Ce script est fourni à des fins éducatives uniquement.** Modifier les fichiers système peut avoir des conséquences imprévues. **Utilisation à vos propres risques.**  
-📡 **Spotify peut modifier ses systèmes pour contourner ce blocage.** L'efficacité de cette méthode peut donc varier.  
+📢 **This script is provided for educational purposes only.** Modifying system files may have unintended consequences. **Use at your own risk.**  
+📡 **Spotify may update its system to bypass this method,** so effectiveness may vary over time.  
 
-## 📜 Licence  
+## 📜 License  
 
-📝 **MIT License** - Projet open-source, libre d'utilisation et de modification.  
+📝 **MIT License** - Open-source project, free to use and modify.
