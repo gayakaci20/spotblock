@@ -34,20 +34,19 @@ block_spotify_ads() {
         "ads.spotify.com"
         "audio-sp-*.spotify.com"
         "audio-fa.spotify.com"
-        "audio2.spotify.com"
-        "audio4.spotify.com"
         "heads-fa.spotify.com"
         "heads4.spotify.com"
         "media-match.com"
         "omaze.com"
-        "spclient.wg.spotify.com"
         "analytics.spotify.com"
         "log.spotify.com"
         "pixel.spotify.com"
         "pixel-static.spotify.com"
         "crashdump.spotify.com"
-        "spclient.wg.spotify.com"
     )
+
+    # Remove duplicates and domains needed for music playback
+    # Removed: spclient.wg.spotify.com, audio2.spotify.com, audio4.spotify.com
 
     local hosts_file="/etc/hosts"
     local backup_dir="$HOME/.spotify_adblock_backups"
