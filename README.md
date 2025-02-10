@@ -57,6 +57,9 @@ sudo ./spotblock.sh status
 ✅ **Automatic backup** 🗂️: The script **creates a backup** of the `hosts` file before making any changes.  
 ✅ **Restart required** 🔄: After blocking ads, **Spotify must be restarted** for the changes to take effect.  
 ✅ **Updates needed** 🔄: Spotify may change its ad domains, so periodic **updates** to the blocklist may be required.  
+✅ **Audio Ads** 🔊: If you still hear audio ads between tracks, try clearing Spotify's cache:
+   - **macOS**: Delete `~/Library/Application Support/Spotify/PersistentCache/`
+   - **Windows**: Delete `%appdata%\Spotify\Data`
 
 ## ⚠️ Disclaimer  
 
@@ -65,4 +68,4 @@ sudo ./spotblock.sh status
 
 ## 📜 License  
 
-📝 **MIT License** - Open-source project, free to use and modify.  
+📝 **MIT License** - Open-source project, free to use and modify.
