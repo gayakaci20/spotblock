@@ -43,6 +43,16 @@ block_spotify_ads() {
         "pixel.spotify.com"
         "pixel-static.spotify.com"
         "crashdump.spotify.com"
+        "audio-ak.spotify.com"
+        "audio-akp-*.spotify.com"
+        "audio-cf.spotify.com"
+        "audio-gc.scdn.co"
+        "audio-fa.scdn.co"
+        "audio-sp.scdn.co"
+        "audio-akp.scdn.co"
+        "promoted.spotify.com"
+        "ad.spotify.com"
+        "adstudio.spotify.com"
     )
 
     # Remove duplicates and domains needed for music playback
