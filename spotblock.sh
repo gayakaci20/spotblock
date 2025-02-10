@@ -1,6 +1,7 @@
 #!/bin/bash
 
-# Spotify Ad Blocker Script
+# SpotBlock - Spotify Ad Blocker Script
+# Created by Gaya KACI
 # This script modifies the hosts file to block Spotify advertisements
 
 # Spotify app bundle identifier
@@ -38,6 +39,68 @@ is_spotify_running() {
         pgrep -x "Spotify" > /dev/null
     fi
     return $?
+}
+
+# Function to skip audio ads
+skip_audio_ads() {
+    # Add more aggressive audio ad domains
+    local audio_ad_domains=(
+        "audio-ak-spotify-com.akamaized.net"
+        "audio-fa.spotifycdn.com"
+        "audio-ak.spotify.com.edgesuite.net"
+        "heads-ak.spotify.com"
+        "audio-sp-*.pscdn.co"
+        "audio-sp-*.spotifycdn.net"
+        "audio-sp-*.spotify.map.fastly.net"
+        "audio-sp-*.spotify.com.edgesuite.net"
+        "audio-sp.spotify.com.akamaized.net"
+        "audio-fa.scdn.co"
+        "audio-sp.scdn.co"
+        "audio-akp.scdn.co"
+        "pubads.g.doubleclick.net"
+        "googleads.g.doubleclick.net"
+        "ads.spotify.com"
+        "audio-sp-*.spotify.com"
+        "audio-fa.spotify.com"
+        "heads-fa.spotify.com"
+        "heads4.spotify.com"
+        "media-match.com"
+        "omaze.com"
+        "analytics.spotify.com"
+        "log.spotify.com"
+        "pixel.spotify.com"
+        "pixel-static.spotify.com"
+        "crashdump.spotify.com"
+        "audio-ak.spotify.com"
+        "audio-akp-*.spotify.com"
+        "audio-cf.spotify.com"
+        "audio-gc.scdn.co"
+        "audio-fa.scdn.co"
+        "audio-sp.scdn.co"
+        "audio-akp.scdn.co"
+        "promoted.spotify.com"
+        "ad.spotify.com"
+        "adstudio.spotify.com"
+
+    )
+
+    # Additional blocking for audio ads
+    if is_windows; then
+        local spotify_prefs="$APPDATA/Spotify/prefs"
+    else
+        local spotify_prefs="$HOME/Library/Application Support/Spotify/prefs"
+    fi
+
+    # Enhanced Spotify preferences modifications
+    if [ -f "$spotify_prefs" ]; then
+        echo "Optimizing Spotify preferences..."
+        echo "audio.play_bitrate_enumeration=0" >> "$spotify_prefs"
+        echo "ui.track_notifications_enabled=false" >> "$spotify_prefs"
+        echo "audio.normalize_v2=false" >> "$spotify_prefs"
+        echo "audio.gapless_playback=false" >> "$spotify_prefs"
+        echo "ui.animated_artwork=false" >> "$spotify_prefs"
+        echo "ui.show_friend_feed=false" >> "$spotify_prefs"
+    fi
 }
 
 block_spotify_ads() {
@@ -105,9 +168,6 @@ block_spotify_ads() {
         "omaze.com"
         "promoted.spotify.com"
     )
-
-    # Remove duplicates and domains needed for music playback
-    # Removed: spclient.wg.spotify.com, audio2.spotify.com, audio4.spotify.com
 
     local hosts_file="/etc/hosts"
     local backup_dir="$HOME/.spotify_adblock_backups"
