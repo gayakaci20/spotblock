@@ -9,7 +9,7 @@ A **cross-platform Bash script** that **blocks Spotify ads** by modifying your s
 - **Windows**: Install [Git Bash](https://git-scm.com/download/win)
 
 ### Steps
-1️⃣ **Clone or download** this repository 📂  
+1️⃣ **Clone the repository** 📂  
 2️⃣ **Make the script executable**:  
    ```bash
    chmod +x spotblock.sh
@@ -27,6 +27,9 @@ sudo ./spotblock.sh restore
 
 # Check status 🔍
 sudo ./spotblock.sh status  
+
+# Clear Spotify cache 🧹
+sudo ./spotblock.sh clear-cache
 ```
 
 ### On Windows:
@@ -42,6 +45,9 @@ sudo ./spotblock.sh status
 
 # Check status 🔍
 ./spotblock.sh status  
+
+# Clear Spotify cache 🧹
+./spotblock.sh clear-cache
 ```
 
 ## ⚙️ How It Works  
@@ -56,10 +62,8 @@ sudo ./spotblock.sh status
 
 ✅ **Automatic backup** 🗂️: The script **creates a backup** of the `hosts` file before making any changes.  
 ✅ **Restart required** 🔄: After blocking ads, **Spotify must be restarted** for the changes to take effect.  
+✅ **Cache clearing** 🧹: If ads persist, try clearing the cache with the `clear-cache` command.  
 ✅ **Updates needed** 🔄: Spotify may change its ad domains, so periodic **updates** to the blocklist may be required.  
-✅ **Audio Ads** 🔊: If you still hear audio ads between tracks, try clearing Spotify's cache:
-   - **macOS**: Delete `~/Library/Application Support/Spotify/PersistentCache/`
-   - **Windows**: Delete `%appdata%\Spotify\Data`
 
 ## ⚠️ Disclaimer  
 
@@ -68,4 +72,4 @@ sudo ./spotblock.sh status
 
 ## 📜 License  
 
-📝 **MIT License** - Open-source project, free to use and modify.
+📝 **MIT License** - Open-source project, free to use and modify.  

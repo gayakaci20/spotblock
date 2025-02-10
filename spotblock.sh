@@ -175,6 +175,24 @@ show_status() {
     fi
 }
 
+# Function to clear Spotify cache
+clear_spotify_cache() {
+    if is_windows; then
+        local cache_dir="$APPDATA/Spotify/Data"
+    else
+        local cache_dir="$HOME/Library/Application Support/Spotify/PersistentCache"
+    fi
+
+    if [ -d "$cache_dir" ]; then
+        echo "Clearing Spotify cache at: $cache_dir"
+        rm -rf "$cache_dir"
+        mkdir -p "$cache_dir"
+        echo "Cache cleared successfully."
+    else
+        echo "Spotify cache directory not found."
+    fi
+}
+
 # Main script logic
 case "$1" in
     "block")
@@ -186,11 +204,15 @@ case "$1" in
     "status")
         show_status
         ;;
+    "clear-cache")
+        clear_spotify_cache
+        ;;
     *)
-        echo "Usage: $0 [block|restore|status]" >&2
-        echo "  block   - Block Spotify ads by modifying hosts file"
-        echo "  restore - Restore hosts file from backup"
-        echo "  status  - Show current Spotify and ad blocking status"
+        echo "Usage: $0 [block|restore|status|clear-cache]" >&2
+        echo "  block       - Block Spotify ads by modifying hosts file"
+        echo "  restore     - Restore hosts file from backup"
+        echo "  status      - Show current Spotify and ad blocking status"
+        echo "  clear-cache - Clear Spotify cache directory"
         exit 1
         ;;
 esac
