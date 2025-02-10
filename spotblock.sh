@@ -44,11 +44,31 @@ block_spotify_ads() {
     local hosts_file=$(get_hosts_file)
     # Comprehensive list of known Spotify ad domains
     local ad_domains=(
+        # Primary Ad Domains
         "pubads.g.doubleclick.net"
         "googleads.g.doubleclick.net"
         "ads.spotify.com"
+        "ads-fa.spotify.com"
+        "adstudio.spotify.com"
+        "adeventtracker.spotify.com"
+        
+        # Audio Ad Domains
         "audio-sp-*.spotify.com"
         "audio-fa.spotify.com"
+        "audio-ak.spotify.com"
+        "audio-akp-*.spotify.com"
+        "audio-cf.spotify.com"
+        "audio-akp-bbr-spotify-com.akamaized.net"
+        "heads-akp.spotify.com"
+        "audio-gc.scdn.co"
+        "audio-fa.scdn.co"
+        "audio-sp.scdn.co"
+        "audio-akp.scdn.co"
+        "promoted.spotify.com"
+        "ad.spotify.com"
+        "adstudio.spotify.com"
+        "adeventtracker.spotify.com"
+        "ads-fa.spotify.com"
         "heads-fa.spotify.com"
         "heads4.spotify.com"
         "media-match.com"
@@ -58,16 +78,32 @@ block_spotify_ads() {
         "pixel.spotify.com"
         "pixel-static.spotify.com"
         "crashdump.spotify.com"
-        "audio-ak.spotify.com"
-        "audio-akp-*.spotify.com"
-        "audio-cf.spotify.com"
+        
+        # CDN and Delivery Networks
+        "audio-ak-spotify-com.akamaized.net"
+        "heads-ak-spotify-com.akamaized.net"
+        "audio-sp-*.pscdn.co"
+        "audio-sp-*.spotifycdn.net"
         "audio-gc.scdn.co"
         "audio-fa.scdn.co"
         "audio-sp.scdn.co"
         "audio-akp.scdn.co"
+        "*.akamaized.net"
+        "*.fastly.net"
+        "*.cloudfront.net"
+        
+        # Analytics and Tracking
+        "analytics.spotify.com"
+        "log.spotify.com"
+        "pixel.spotify.com"
+        "pixel-static.spotify.com"
+        "crashdump.spotify.com"
+        "weblb-wg.gslb.spotify.com"
+        
+        # Other Ad-related
+        "media-match.com"
+        "omaze.com"
         "promoted.spotify.com"
-        "ad.spotify.com"
-        "adstudio.spotify.com"
     )
 
     # Remove duplicates and domains needed for music playback
