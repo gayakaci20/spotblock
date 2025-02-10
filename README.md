@@ -1,9 +1,14 @@
 # 🚫🎵 SpotBlock - Spotify Ad Blocker  
 
-A **Bash script** that **blocks Spotify ads** by modifying your system's `hosts` file. Simple, effective, and easy to use!  
+A **cross-platform Bash script** that **blocks Spotify ads** by modifying your system's `hosts` file. Works on both macOS and Windows!
 
 ## 🔧 Installation  
 
+### Prerequisites
+- **macOS**: No additional requirements
+- **Windows**: Install [Git Bash](https://git-scm.com/download/win)
+
+### Steps
 1️⃣ **Clone or download** this repository 📂  
 2️⃣ **Make the script executable**:  
    ```bash
@@ -12,8 +17,7 @@ A **Bash script** that **blocks Spotify ads** by modifying your system's `hosts`
 
 ## 🚀 Usage  
 
-The script **requires root privileges (sudo)** and supports the following commands:  
-
+### On macOS:
 ```bash
 # Block Spotify ads 🚫
 sudo ./spotblock.sh block  
@@ -21,13 +25,31 @@ sudo ./spotblock.sh block
 # Restore the original hosts file 🔄
 sudo ./spotblock.sh restore  
 
-# Check Spotify and ad-blocking status 🔍
+# Check status 🔍
 sudo ./spotblock.sh status  
+```
+
+### On Windows:
+1. Right-click on Git Bash and select "Run as administrator"
+2. Navigate to the script directory
+3. Run the same commands as above (without sudo):
+```bash
+# Block Spotify ads 🚫
+./spotblock.sh block  
+
+# Restore the original hosts file 🔄
+./spotblock.sh restore  
+
+# Check status 🔍
+./spotblock.sh status  
 ```
 
 ## ⚙️ How It Works  
 
-🛠️ **SpotBlock** modifies the `/etc/hosts` file, redirecting **Spotify ad domains** to `127.0.0.1`.  
+🛠️ **SpotBlock** modifies the system's hosts file:
+- **macOS**: `/etc/hosts`
+- **Windows**: `C:\Windows\System32\drivers\etc\hosts`
+
 🚫 This prevents ads from loading while you enjoy your music.  
 
 ## 🔴 Important Notes  
@@ -43,4 +65,4 @@ sudo ./spotblock.sh status
 
 ## 📜 License  
 
-📝 **MIT License** - Open-source project, free to use and modify.
+📝 **MIT License** - Open-source project, free to use and modify.  

@@ -16,17 +16,32 @@ if [ "$(id -u)" -ne 0 ]; then
     exit 1
 fi
 
-# Function to check if Spotify is running
-is_spotify_running() {
-    if pgrep -x "Spotify" > /dev/null; then
-        return 0  # True (Spotify is running)
+# Platform detection
+is_windows() {
+    [[ "$OSTYPE" == "msys"* || "$OSTYPE" == "cygwin"* ]]
+}
+
+# Function to get hosts file location
+get_hosts_file() {
+    if is_windows; then
+        echo "/c/Windows/System32/drivers/etc/hosts"
     else
-        return 1  # False (Spotify is not running)
+        echo "/etc/hosts"
     fi
 }
 
-# Function to block ads
+# Function to check if Spotify is running
+is_spotify_running() {
+    if is_windows; then
+        tasklist | grep -i "Spotify.exe" > /dev/null
+    else
+        pgrep -x "Spotify" > /dev/null
+    fi
+    return $?
+}
+
 block_spotify_ads() {
+    local hosts_file=$(get_hosts_file)
     # Comprehensive list of known Spotify ad domains
     local ad_domains=(
         "pubads.g.doubleclick.net"
